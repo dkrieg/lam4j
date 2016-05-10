@@ -6,7 +6,7 @@ import java.util.Objects;
 public interface ελ4<A, B, C, D, E> extends λ {
   long serialVersionUID = 1L;
 
-  E x(A a, B b, C c, D d) throws Throwable;
+  E x(A a, B b, C c, D d) throws Exception;
 
   default λ4<A, B, C, D, E> unchecked() {
     return λ.unchecked(this);
@@ -39,7 +39,7 @@ public interface ελ4<A, B, C, D, E> extends λ {
     return (d, c, b, a) -> x(a, b, c, d);
   }
 
-  default <V> ελ4<A, B, C, D, V> andThen(ελ1<? super E, ? extends V> after) {
+  default <F> ελ4<A, B, C, D, F> andThen(ελ1<? super E, ? extends F> after) {
     Objects.requireNonNull(after, "after is null");
     return (a, b, c, d) -> after.x(x(a, b, c, d));
   }

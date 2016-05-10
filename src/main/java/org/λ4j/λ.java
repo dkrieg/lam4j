@@ -66,7 +66,7 @@ public interface λ extends Serializable {
     return () -> {
       try {
         return λf.x();
-      } catch (Throwable t) {
+      } catch (Exception t) {
         throw new εException(t);
       }
     };
@@ -76,7 +76,7 @@ public interface λ extends Serializable {
     return (a) -> {
       try {
         return λf.x(a);
-      } catch (Throwable t) {
+      } catch (Exception t) {
         throw new εException(t);
       }
     };
@@ -86,7 +86,7 @@ public interface λ extends Serializable {
     return (a, b) -> {
       try {
         return λf.x(a, b);
-      } catch (Throwable t) {
+      } catch (Exception t) {
         throw new εException(t);
       }
     };
@@ -96,7 +96,7 @@ public interface λ extends Serializable {
     return (a, b, c) -> {
       try {
         return λf.x(a, b, c);
-      } catch (Throwable t) {
+      } catch (Exception t) {
         throw new εException(t);
       }
     };
@@ -106,7 +106,7 @@ public interface λ extends Serializable {
     return (a, b, c, d) -> {
       try {
         return λf.x(a, b, c, d);
-      } catch (Throwable t) {
+      } catch (Exception t) {
         throw new εException(t);
       }
     };
@@ -116,7 +116,7 @@ public interface λ extends Serializable {
     return (a, b, c, d, e) -> {
       try {
         return λf.x(a, b, c, d, e);
-      } catch (Throwable t) {
+      } catch (Exception t) {
         throw new εException(t);
       }
     };
@@ -126,7 +126,7 @@ public interface λ extends Serializable {
     return (a, b, c, d, e, f) -> {
       try {
         return λf.x(a, b, c, d, e, f);
-      } catch (Throwable t) {
+      } catch (Exception t) {
         throw new εException(t);
       }
     };
@@ -136,7 +136,7 @@ public interface λ extends Serializable {
     return (a, b, c, d, e, f, g) -> {
       try {
         return λf.x(a, b, c, d, e, f, g);
-      } catch (Throwable t) {
+      } catch (Exception t) {
         throw new εException(t);
       }
     };
@@ -146,7 +146,7 @@ public interface λ extends Serializable {
     return (a, b, c, d, e, f, g, h) -> {
       try {
         return λf.x(a, b, c, d, e, f, g, h);
-      } catch (Throwable t) {
+      } catch (Exception t) {
         throw new εException(t);
       }
     };
@@ -169,7 +169,7 @@ public interface λ extends Serializable {
   }
 
   class εException extends RuntimeException {
-    public εException(Throwable cause) {
+    public εException(Exception cause) {
       super(cause);
     }
   }

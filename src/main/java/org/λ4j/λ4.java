@@ -1,7 +1,6 @@
 package org.λ4j;
 
 import java.util.Objects;
-import java.util.function.Function;
 
 @FunctionalInterface
 public interface λ4<A, B, C, D, E> extends λ {
@@ -36,8 +35,8 @@ public interface λ4<A, B, C, D, E> extends λ {
     return (d, c, b, a) -> x(a, b, c, d);
   }
 
-  default <V> λ4<A, B, C, D, V> andThen(Function<? super E, ? extends V> after) {
+  default <F> λ4<A, B, C, D, F> andThen(λ1<? super E, ? extends F> after) {
     Objects.requireNonNull(after, "after is null");
-    return (a, b, c, d) -> after.apply(x(a, b, c, d));
+    return (a, b, c, d) -> after.x(x(a, b, c, d));
   }
 }

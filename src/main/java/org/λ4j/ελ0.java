@@ -4,7 +4,7 @@ package org.λ4j;
 public interface ελ0<A> extends λ {
   long serialVersionUID = 1L;
 
-  A x() throws Throwable;
+  A x() throws Exception;
 
   default λ0<A> unchecked() {
     return λ.unchecked(this);
