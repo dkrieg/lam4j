@@ -1,6 +1,5 @@
 package org.λ4j;
 
-import java.util.Objects;
 import java.util.function.BiFunction;
 
 @FunctionalInterface
@@ -34,7 +33,6 @@ public interface λ2<A, B, C> extends λ, BiFunction<A, B, C> {
   }
 
   default <D> λ2<A, B, D> andThen(λ1<? super C, ? extends D> after) {
-    Objects.requireNonNull(after);
     return (A a, B b) -> after.x(x(a, b));
   }
 }

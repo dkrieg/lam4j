@@ -1,7 +1,5 @@
 package org.λ4j;
 
-import java.util.Objects;
-
 @FunctionalInterface
 public interface λ8<A, B, C, D, E, F, G, H, I> extends λ {
   long serialVersionUID = 1L;
@@ -52,7 +50,6 @@ public interface λ8<A, B, C, D, E, F, G, H, I> extends λ {
   }
 
   default <J> λ8<A, B, C, D, E, F, G, H, J> andThen(λ1<? super I, ? extends J> after) {
-    Objects.requireNonNull(after, "after is null");
     return (a, b, c, d, e, f, g, h) -> after.x(x(a, b, c, d, e, f, g, h));
   }
 }

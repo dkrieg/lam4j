@@ -3,7 +3,6 @@ package org.λ4j.structure;
 import org.λ4j.λ2;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 public interface Product extends Serializable {
   long serialVersionUID = 1L;
@@ -17,7 +16,6 @@ public interface Product extends Serializable {
   }
 
   static boolean containsComparable(Product... products) {
-    Objects.requireNonNull(products, "products is null");
     for (Product p : products) {
       for (int i = 1; i < p.arity(); i++) {
         if (!(p._n(i) instanceof Comparable)) {

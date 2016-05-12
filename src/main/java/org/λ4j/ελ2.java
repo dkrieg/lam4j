@@ -1,18 +1,16 @@
 package org.λ4j;
 
-import java.util.Objects;
-
 @FunctionalInterface
-public interface ελ2<A, B, C> extends λ {
+public interface ελ2<A, B, C, Z extends Exception> extends λ {
   long serialVersionUID = 1L;
 
-  C x(A a, B b) throws Exception;
+  C x(A a, B b) throws Z;
 
   default λ2<A, B, C> unchecked() {
     return λ.unchecked(this);
   }
 
-  default ελ1<B, C> x(A a) {
+  default ελ1<B, C, Z> x(A a) {
     return b -> x(a, b);
   }
 
@@ -22,17 +20,16 @@ public interface ελ2<A, B, C> extends λ {
   }
 
   @Override
-  default ελ1<A, ελ1<B, C>> curried() {
+  default ελ1<A, ελ1<B, C, Z>, Z> curried() {
     return a -> b -> x(a, b);
   }
 
   @Override
-  default ελ2<B, A, C> flipped() {
+  default ελ2<B, A, C, Z> flipped() {
     return (b, a) -> x(a, b);
   }
 
-  default <D> ελ2<A, B, D> andThen(ελ1<? super C, ? extends D> after) {
-    Objects.requireNonNull(after, "after is null");
+  default <D> ελ2<A, B, D, Z> andThen(ελ1<? super C, ? extends D, ? extends Z> after) {
     return (a, b) -> after.x(x(a, b));
   }
 }

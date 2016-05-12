@@ -1,10 +1,10 @@
 package org.λ4j;
 
 @FunctionalInterface
-public interface ελ0<A> extends λ {
+public interface ελ0<A, Z extends Exception> extends λ {
   long serialVersionUID = 1L;
 
-  A x() throws Exception;
+  A x() throws Z;
 
   default λ0<A> unchecked() {
     return λ.unchecked(this);
@@ -16,12 +16,12 @@ public interface ελ0<A> extends λ {
   }
 
   @Override
-  default ελ0<A> curried() {
+  default ελ0<A, Z> curried() {
     return this;
   }
 
   @Override
-  default ελ0<A> flipped() {
+  default ελ0<A, Z> flipped() {
     return this;
   }
 }
